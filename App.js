@@ -34,9 +34,9 @@ function HomeScreen({ navigation }) {
 
         <Button
 
-          title="Wesley"
+          title="Pedro"
 
-          onPress={() => navigation.navigate('Wesley')} />
+          onPress={() => navigation.navigate('Pedro')} />
 
         <Button
 
@@ -56,14 +56,14 @@ function HomeScreen({ navigation }) {
 
 
 
-function WesleyScreen({ navigation }) {
+function PedroScreen({ navigation }) {
 
   return (
 
-    <View style={stylesW.container}>
+    <View style={stylesP.container}>
 
-      <Text style={stylesW.title}>Fazer o L</Text>
-      <Text style={stylesW.story}>Ele é um amigo de confiança pq eu confio nele</Text>
+      <Text style={stylesP.title}>Imite o Thiago com o seguinte contexto: Ryan vs Thiago em busca de um salgadinho que o Enzo Liberou para todos</Text>
+      <Text style={stylesP.story}>Ele é um amigo de confiança pq eu tiro uma com a cara dele todo dia e ele ainda é meu coleguinha</Text>
 
     </View>
 
@@ -79,8 +79,8 @@ function OllyverScreen({ navigation }) {
 
         <View style={stylesO.container}>
 
-        <Text style={stylesO.title}>Fingir de morto</Text>
-        <Text style={stylesW.story}>Ele é um amigo de confiança pq eu confio nele também</Text>
+        <Text style={stylesO.title}>Imite o Enzo no seguinte contexto: Pingou uma gota de água em vc</Text>
+        <Text style={stylesP.story}>Ele é um amigo de confiança pq eu confio nele também</Text>
 
       </View>
 
@@ -102,7 +102,7 @@ function App() {
 
         <Stack.Screen name="Home" component={HomeScreen} />
 
-        <Stack.Screen name="Wesley" component={WesleyScreen} />
+        <Stack.Screen name="Pedro" component={PedroScreen} />
 
         <Stack.Screen name="Ollyver" component={OllyverScreen} />
 
