@@ -62,7 +62,8 @@ function WesleyScreen({ navigation }) {
 
     <View style={stylesW.container}>
 
-      <Text style={stylesW.title}>xxxxxxx</Text>
+      <Text style={stylesW.title}>Fazer o L</Text>
+      <Text style={stylesW.story}>Ele é um amigo de confiança pq eu confio nele</Text>
 
     </View>
 
@@ -78,7 +79,8 @@ function OllyverScreen({ navigation }) {
 
         <View style={stylesO.container}>
 
-        <Text style={stylesO.title}>xxxxxxx</Text>
+        <Text style={stylesO.title}>Fingir de morto</Text>
+        <Text style={stylesW.story}>Ele é um amigo de confiança pq eu confio nele também</Text>
 
       </View>
 
