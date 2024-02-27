@@ -1,72 +1,52 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 
-import { StatusBar } from 'expo-status-bar';
+import { Button, View, Text, StyleSheet } from 'react-native';
 
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-
-
-export default function App() {
-
-  const [backgroundColor, setBackgroundColor] = useState('#9CF100'); // Cor inicial do background
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
-  const changeBackgroundColor = () => {
+// Importe os componentes de Cabeçalho, Corpo e Rodapé
 
-    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16); // Gera uma cor aleatória em hexadecimal
+import Corpo from './Corpo';
 
-    setBackgroundColor(randomColor);
-
-  };
+import Rodapé from './Rodapé';
 
 
+
+function HomeScreen({ navigation }) {
 
   return (
 
-    <View style={[styles.container, { backgroundColor }]}>
+    <View style={{ flex: 1 }}>
 
-      <Text style={styles.text}>Pedro Arthur Pizarro pc 12 armário 02</Text>
+      <View style={stylestop.container}>
 
-      <Text style={styles.text2}>Pedro Arthur Pizarro pc 12 armário 02</Text>
+      <View>
 
-      <StatusBar style="auto" />
-
-      <View style={styles.container2}>
-
-        <Text style={styles.text3}>Clique no botão para personalizar o site:</Text>
-
-        <TouchableOpacity style={styles.button} onPress={changeBackgroundColor}>
-
-          <Text style={styles.buttonText}>Mudar Cor</Text>
-
-        </TouchableOpacity>
-
-        <Text style={styles.text4}>
-
-          As cores desempenham um papel fundamental em nossas vidas, influenciando nossas emoções, percepções e até mesmo nossas decisões. Desde os primórdios da humanidade, as cores têm sido utilizadas para expressar significados culturais, transmitir mensagens e criar ambientes específicos. Na psicologia das cores, diferentes tons são associados a diferentes estados de espírito: o azul transmite tranquilidade, o vermelho evoca paixão e energia, o verde representa harmonia e o amarelo sugere otimismo.
-
-        </Text>
-
-        <Text style={styles.text4}>
-
-          Além de seu impacto psicológico, as cores desempenham um papel importante no design gráfico, na publicidade, na moda e até mesmo na arquitetura. A escolha das cores certas pode atrair a atenção, transmitir uma mensagem específica e criar uma identidade visual única. No marketing, por exemplo, as marcas muitas vezes utilizam cores específicas em seus logotipos para criar associações positivas com seus produtos ou serviços.
-
-        </Text>
-
-        <Text style={styles.text4}>
-
-          Na natureza, as cores desempenham um papel vital na sobrevivência e na reprodução de muitas espécies. Animais desenvolveram padrões de cores específicos para camuflagem, comunicação e advertência. Plantas utilizam cores brilhantes para atrair polinizadores e se defender de predadores.
-
-        </Text>
-
-        <Text style={styles.text4}>
-
-          Em resumo, as cores são muito mais do que apenas estímulos visuais; elas são uma parte intrínseca de nossa experiência humana e desempenham um papel multifacetado em nossa vida cotidiana. Seja na arte, na ciência ou na cultura, as cores continuam a inspirar e fascinar, refletindo a riqueza e a diversidade do mundo ao nosso redor.
-
-        </Text>
+        <Text style={stylestop.title}>Champions League UEFA</Text>
 
       </View>
+
+      <View style={stylestop.navigation}>
+
+        <Button
+
+          title="Wesley"
+
+          onPress={() => navigation.navigate('Wesley')} />
+
+        <Button
+
+          title="Ollyver"
+
+          onPress={() => navigation.navigate('Ollyver')} />
+
+      </View>
+
+    </View>
 
     </View>
 
@@ -76,98 +56,200 @@ export default function App() {
 
 
 
-const styles = StyleSheet.create({
+function WesleyScreen({ navigation }) {
 
-  container: {
+  return (
 
-    flex: 1,
+    <View style={stylesW.container}>
 
-    marginTop: 25,
+      <Text style={stylesW.title}>Fazer o L</Text>
 
-    marginHorizontal: 10,
+    </View>
 
-    alignItems: 'left',
+  );
 
-    justifyContent: 'left',
+}
 
-  },
 
-  text: {
 
-    borderWidth: 1,
+function OllyverScreen({ navigation }) {
 
-    borderColor: '#fff',
+    return (
 
-    backgroundColor: '#000',
+        <View style={stylesO.container}>
 
-    color: '#fff',
+        <Text style={stylesO.title}>Fingir de Morto</Text>
+
+      </View>
+
+    );
+
+  }
+
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+
+  return (
+
+    <NavigationContainer>
+
+      <Stack.Navigator initialRouteName="Home">
+
+        <Stack.Screen name="Home" component={HomeScreen} />
+
+        <Stack.Screen name="Wesley" component={WesleyScreen} />
+
+        <Stack.Screen name="Ollyver" component={OllyverScreen} />
+
+      </Stack.Navigator>
+
+    </NavigationContainer>
+
+  );
+
+}
+
+
+
+const stylestop = StyleSheet.create({
+
+    container: {
+
+      backgroundColor: 'black',
+
+      padding: 20,
+
+      flexDirection: 'column', // Alterado de 'row' para 'column'
+
+      justifyContent: 'flex-start', // Alterado de 'space-between' para 'flex-start'
+
+      position: 'absolute',
+
+      alignItems: 'center',
+
+      top: 10,
+
+      left: 0,
+
+      right: 0,
+
+    },
 
     
 
-  },
+    title: {
 
-  text2: {
+      color: 'white',
 
-    marginBottom: 50,
+      fontSize: 18,
 
-  },
+      fontWeight: 'bold',
 
-  container2: {
+      marginBottom: 5,
 
-    alignItems: 'center',
+    },
 
-  },
+    
 
-  text3: {
+    navigation: {
 
-    textDecorationLine: 'underline',
+      flexDirection: 'row',
 
-    color: '#000',
+      marginTop: 10,
 
-    fontWeight: 'bold',
+      fontSize: 100,
 
-    marginBottom: 10,
+      gap: 10,
 
-    textAlign: 'center',
+    },
 
-    fontSize: 20,
+  });
 
 
 
-  },
+  const stylesW = StyleSheet.create({
 
-  button: {
+    container: {
 
-    backgroundColor: '#3ED500',
+      flex: 1,
 
-    padding: 10,
+      backgroundColor: '#fff',
 
-    borderRadius: 5,
+      alignItems: 'center',
 
-    marginBottom: 10,
+      justifyContent: 'center',
 
-  },
+      paddingHorizontal: 16,
 
-  buttonText: {
+    },
 
-    color: '#fff',
+    title: {
 
-    fontWeight: 'bold',
+      fontSize: 24,
 
-    textAlign: 'center',
+      fontWeight: 'bold',
 
-  },
+      marginBottom: 16,
 
-  text4: {
+    },
 
-    textAlign: 'justify',
+    story: {
 
-    marginHorizontal: 10,
+      fontSize: 16,
 
-    fontSize: 16,
+      textAlign: 'center',
 
-    marginBottom: 10,
+      lineHeight: 24,
 
-  },
+    },
 
-});
+  });
+
+
+
+  const stylesO = StyleSheet.create({
+
+    container: {
+
+      flex: 1,
+
+      backgroundColor: '#fff',
+
+      alignItems: 'center',
+
+      justifyContent: 'center',
+
+      paddingHorizontal: 16,
+
+    },
+
+    title: {
+
+      fontSize: 24,
+
+      fontWeight: 'bold',
+
+      marginBottom: 16,
+
+    },
+
+    story: {
+
+      fontSize: 16,
+
+      textAlign: 'center',
+
+      lineHeight: 24,
+
+    },
+
+  });
+
+
+
+  
+
+export default App;
