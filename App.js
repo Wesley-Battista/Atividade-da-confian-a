@@ -26,7 +26,7 @@ function HomeScreen({ navigation }) {
 
       <View>
 
-        <Text style={stylestop.title}>Champions League UEFA</Text>
+        <Text style={stylestop.title}>Atividade</Text>
 
       </View>
 
@@ -62,7 +62,7 @@ function WesleyScreen({ navigation }) {
 
     <View style={stylesW.container}>
 
-      <Text style={stylesW.title}>Fazer o L</Text>
+      <Text style={stylesW.title}>xxxxxxx</Text>
 
     </View>
 
@@ -78,7 +78,7 @@ function OllyverScreen({ navigation }) {
 
         <View style={stylesO.container}>
 
-        <Text style={stylesO.title}>Fingir de Morto</Text>
+        <Text style={stylesO.title}>xxxxxxx</Text>
 
       </View>
 
